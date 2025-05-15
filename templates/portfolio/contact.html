@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}Contato - Meu Portfólio{% endblock %}
+
+{% block content %}
+<!-- Contact Header -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                <h1 class="mb-4">Entre em Contato</h1>
+                <p class="lead">Vamos conversar sobre seu próximo projeto!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Content -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Contact Information -->
+            <div class="col-lg-4 mb-4 mb-lg-0" data-aos="fade-up">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">Informações de Contato</h3>
+                        <div class="d-flex mb-4">
+                            <i class="fas fa-envelope fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5>Email</h5>
+                                <p class="mb-0">seu.email@exemplo.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-4">
+                            <i class="fas fa-map-marker-alt fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5>Localização</h5>
+                                <p class="mb-0">São Paulo, SP - Brasil</p>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <i class="fas fa-clock fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5>Disponibilidade</h5>
+                                <p class="mb-0">Segunda a Sexta, 9h às 18h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="100">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title mb-4">Envie uma Mensagem</h3>
+                        <form method="post" class="contact-form">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="name" class="form-label">Nome</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Assunto</label>
+                                <input type="text" class="form-control" id="subject" name="subject" required>
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="form-label">Mensagem</label>
+                                <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">
+                                Enviar Mensagem <i class="fas fa-paper-plane ms-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Social Links -->
+<section class="py-5 bg-light">
+    <div class="container text-center" data-aos="fade-up">
+        <h2 class="mb-4">Me encontre nas redes sociais</h2>
+        <div class="social-links-large">
+            <a href="#" class="btn btn-outline-primary btn-lg mx-2 mb-3">
+                <i class="fab fa-github me-2"></i> GitHub
+            </a>
+            <a href="#" class="btn btn-outline-primary btn-lg mx-2 mb-3">
+                <i class="fab fa-linkedin me-2"></i> LinkedIn
+            </a>
+            <a href="#" class="btn btn-outline-primary btn-lg mx-2 mb-3">
+                <i class="fab fa-twitter me-2"></i> Twitter
+            </a>
+            <a href="#" class="btn btn-outline-primary btn-lg mx-2 mb-3">
+                <i class="fab fa-instagram me-2"></i> Instagram
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

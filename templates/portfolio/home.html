@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+                <h1 class="mb-4">Olá, eu sou <span class="highlight">Seu Nome</span></h1>
+                <p class="lead mb-4">Desenvolvedor Full Stack apaixonado por criar soluções inovadoras e impactantes</p>
+                <div class="mt-4">
+                    <a href="{% url 'portfolio:projects' %}" class="btn btn-primary me-3">Ver Projetos</a>
+                    <a href="{% url 'portfolio:contact' %}" class="btn btn-outline-light">Contato</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
+                <h2 class="mb-4">Sobre Mim</h2>
+                <p class="lead">Sou um desenvolvedor apaixonado por tecnologia e inovação, com experiência em criar soluções web modernas e eficientes.</p>
+                <p>Com mais de X anos de experiência em desenvolvimento web, tenho trabalhado com diversas tecnologias e frameworks modernos para criar aplicações web de alta qualidade.</p>
+                <div class="mt-4">
+                    <a href="#" class="btn btn-primary">Download CV</a>
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="skill-progress">
+                    <h4>Python/Django</h4>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <h4>JavaScript</h4>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <h4>HTML/CSS</h4>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-progress">
+                    <h4>React</h4>
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Minhas Habilidades</h2>
+        <div class="row">
+            {% for skill in skills %}
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter|multiply:100 }}">
+                <div class="card skill-card h-100">
+                    <div class="card-body">
+                        <i class="{{ skill.icon }} fa-3x"></i>
+                        <h3>{{ skill.name }}</h3>
+                        <p>{{ skill.description }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Featured Projects Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5" data-aos="fade-up">Projetos em Destaque</h2>
+        <div class="row">
+            {% for project in projects %}
+            <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter|multiply:100 }}">
+                <div class="card project-card h-100">
+                    {% if project.image %}
+                    <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ project.title }}</h5>
+                        <p class="card-text">{{ project.description|safe|truncatewords:30 }}</p>
+                        <div class="technology-tags">
+                            {% for tech in project.technology.split %}
+                            <span class="technology-tag">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        <div class="mt-3">
+                            <a href="{% url 'portfolio:project_detail' project.pk %}" class="btn btn-primary">Ver mais</a>
+                            {% if project.link %}
+                            <a href="{{ project.link }}" class="btn btn-outline-primary ms-2" target="_blank">Demo</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-4" data-aos="fade-up">
+            <a href="{% url 'portfolio:projects' %}" class="btn btn-lg btn-primary">Ver todos os projetos</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact CTA Section -->
+<section class="py-5 bg-white">
+    <div class="container text-center" data-aos="fade-up">
+        <h2 class="mb-4">Vamos trabalhar juntos?</h2>
+        <p class="lead mb-4">Estou sempre aberto a novos projetos e oportunidades interessantes.</p>
+        <a href="{% url 'portfolio:contact' %}" class="btn btn-lg btn-primary">Entre em contato</a>
+    </div>
+</section>
+{% endblock %}
