@@ -165,13 +165,13 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 ## 👨‍💻 Autor
 
 Seu Nome
-- LinkedIn: [Seu LinkedIn](https://linkedin.com/in/seu-perfil)
-- GitHub: [Seu GitHub](https://github.com/seu-usuario)
+- LinkedIn: [Seu LinkedIn](www.linkedin.com/in/eder-fornielles-pereira-8483b253)
+- GitHub: [Seu GitHub](https://github.com/ederfp)
 
 ## 📫 Contato
 
-- Email: seu.email@exemplo.com
-- LinkedIn: [Seu LinkedIn](https://linkedin.com/in/seu-perfil)
+- Email: edrfp.dev@gmail.com
+- LinkedIn: [Seu LinkedIn](www.linkedin.com/in/eder-fornielles-pereira-8483b253)
 
 ## 🤝 Contribuição
 
